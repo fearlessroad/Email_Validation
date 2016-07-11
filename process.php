@@ -4,19 +4,20 @@ require_once('new-connection.php');
 
 if (isset($_POST['email'])){
 
-		if (!strpbrk($_POST['email'], '@')){
+		// if (!strpbrk($_POST['email'], '@')){
 
-			$_SESSION['error'] = "<div class='green'><p>I'm sorry, but usually emails contain an @ symbol. Please make sure you enter a valid email address.</div>";
-			header("Location: email_verification.php");
-		}
+		// 	$_SESSION['error'] = "<div class='green'><p>I'm sorry, but usually emails contain an @ symbol. Please make sure you entssr a valid email address.</div>";
+		// 	header("Location: email_verification.php");
+		// }
+	// testing
 
-		else if(!strpbrk($_POST['email'], '.')){
+		// else if(!strpbrk($_POST['email'], '.')){
 
-			$_SESSION['error'] = "<div class='green'><p>Um please add a .domain to your email address.</div>";
-			header("Location: email_verification.php");
-			}
+		// 	$_SESSION['error'] = "<div class='green'><p>Um please add a .domain to your email address.</div>";
+		// 	header("Location: email_verification.php");
+		// 	}
 
-		else if(!strpbrk($_POST['email'], '[a-zA-Z0-9].')){
+		 if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)=== false){
 
 			$_SESSION['error'] = "<div class='green'><p>Do you even know what an email address is?</div>";
 			header("Location: email_verification.php");
